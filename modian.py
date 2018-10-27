@@ -49,11 +49,11 @@ def modian(bot):
             p = item.find_all('p')
             key = p[0].get_text()
             value = p[1].get_text().decode('unicode_escape')[1:]
-            
+
             # dict2[key] = value
-            
+
             change = computeChange(key, value, dict1)
-            
+
             if change != 0:
                 hasChange = True
                 print key.decode('unicode_escape'), change
@@ -77,7 +77,7 @@ def modian(bot):
             for key, value in dict1.items():
                 writer.writerow({'name': key.decode('utf-8'), 'money': value})
         else:
-            return;        
+            return;
     mainPage = requests.get("https://zhongchou.modian.com/realtime/get_simple_product?jsonpcallback=jQuery111109347054952963518_1518455206519&ids=11168&if_all=1&_=1518455206520")
     mainPage.encoding = 'utf-8'
     pattern = re.compile(r'\{"id"[\s\S]*\}');
